@@ -7,6 +7,62 @@
 </head>
 <body>
     <script>
+        // An array with all viable choices
+        const choices = ['rock', 'paper', 'scissor'];
+        function computerPlay(){
+            //returns a random computer choice from choices array
+            let choiceNumber = Math.floor(Math.random()*3);
+            return choices[choiceNumber];
+            }
+        function playRound(playerSelection,computerSelection){
+            
+            //takes player and computer choice and returns the result of one round
+            if(playerSelection === computerSelection){
+                return `${playerSelection} ties with ${computerSelection}`;
+
+            }
+            else if((playerSelection == "rock" && computerSelection == "paper") ||
+            (playerSelection == "scissor" && computerSelection == "rock") ||
+            (playerSelection == "paper" && computerSelection == "scissor")){
+                return `${computerSelection} beats ${playerSelection}, you lose`;
+
+
+
+            }
+            else if((playerSelection == "rock" && computerSelection == "scissor") ||
+            (playerSelection == "scissor" && computerSelection == "paper") ||
+            (playerSelection == "paper" && computerSelection == "rock")){
+                return `${playerSelection} beats ${computerSelection}, you win`;
+
+            
+        }
+        }
+        
+        function game(){
+            
+            for(let i = 0; i<5;i++){
+                const computerSelection = computerPlay();
+                while(true){
+                var userChoice = prompt("enter a choice").toLowerCase();
+                
+                if(choices.includes(userChoice)){
+                    break;
+                }
+                }
+                const playerSelection = userChoice;
+                
+                console.log(playRound(playerSelection,computerSelection));
+                
+            }
+        }
+
+        game();
+
+
+
+        
+        
+
 
         
     </script>
