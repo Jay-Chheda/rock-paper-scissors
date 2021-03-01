@@ -2,70 +2,131 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>rock-paper-scissors</title>
 </head>
 <body>
     <script>
-        // An array with all viable choices
-        const choices = ['rock', 'paper', 'scissor'];
+        // *A FUNCTION THAT RETURNS RANDOM NUMBER BETWEEN 0,1,2 FOR COMPUTER CHOICE 
         function computerPlay(){
-            //returns a random computer choice from choices array
-            let choiceNumber = Math.floor(Math.random()*3);
-            return choices[choiceNumber];
+            const choiceArray = ['ROCK','PAPER','SCISSOR'];
+            return choiceArray[(Math.floor((Math.random()*3)))];
+             }
+    
+
+        /* A FUNCTION THAT ASKS FOR PLAYER CHOICE AND STORES IT IN A VARIABLE 
+                    AND ALSO CHECKS IF IT IS A VALID CHOICE
+        */
+        function playerPlay(){
+            let playerChoice;
+            keepGoing = true;
+
+            while(keepGoing){
+            playerChoice= window.prompt('Choose between Rock, Paper, and Scissor');
+            playerChoice =playerChoice.toUpperCase();
+            if(playerChoice == 'ROCK' || playerChoice == 'PAPER' || playerChoice == 'SCISSOR'){
+                keepGoing = false;
             }
-        function playRound(playerSelection,computerSelection){
-            
-            //takes player and computer choice and returns the result of one round
-            if(playerSelection === computerSelection){
-                return `${playerSelection} ties with ${computerSelection}`;
+            else{
+                window.alert('choose between Rock, Paper or Scisoor');
+            }
 
             }
-            else if((playerSelection == "rock" && computerSelection == "paper") ||
-            (playerSelection == "scissor" && computerSelection == "rock") ||
-            (playerSelection == "paper" && computerSelection == "scissor")){
-                return `${computerSelection} beats ${playerSelection}, you lose`;
-
-
-
-            }
-            else if((playerSelection == "rock" && computerSelection == "scissor") ||
-            (playerSelection == "scissor" && computerSelection == "paper") ||
-            (playerSelection == "paper" && computerSelection == "rock")){
-                return `${playerSelection} beats ${computerSelection}, you win`;
-
+            return playerChoice;
             
         }
+
+
+        /* A PLAYROUND FUNCTION THAT CALLS computerPlay and playerPlay 
+        FUNCTIONS AND COMPARES THE RESULTS AND RETURNS THE WINNER." */
+
+        function playRound(){
+            let playerSelection, computerSelection;
+            playerSelection = playerPlay();
+            computerSelection = computerPlay();
+            console.log(playerSelection);
+            console.log(computerSelection);
+
+            if(playerSelection == computerSelection){
+                return 0;
+            }
+            else if((playerSelection == 'ROCK' && computerSelection == 'SCISSOR') || 
+            (playerSelection == 'PAPER' && computerSelection == 'ROCK')||
+            (playerSelection == 'SCISSOR' && computerSelection == 'PAPER')){
+                return 1;
+            }
+            else{
+                return -1;
+            }
         }
         
-        function game(){
-            
-            for(let i = 0; i<5;i++){
-                const computerSelection = computerPlay();
-                while(true){
-                var userChoice = prompt("enter a choice").toLowerCase();
-                
-                if(choices.includes(userChoice)){
-                    break;
+
+        /*FUNCTION PLAYE GAME CALLS THE playRound FUNCTION 5 TIMES AND RECORDS SCORE OF 
+        EACH ROUND AND ANNOUNCES THE WINNER AT THE END OF 5 ROUNDS BASED ON AGGREGATE SCORE */
+
+        function playGame(){
+            let playerScore = 0;
+            let computerScore = 0;
+
+            for(let i = 0; i<=4;++i){
+                let roundResult = playRound();
+                console.log(roundResult)
+                if(roundResult == 1){
+                    playerScore++;
                 }
+                else if(roundResult == -1){
+                    computerScore++;
+
                 }
-                const playerSelection = userChoice;
-                
-                console.log(playRound(playerSelection,computerSelection));
+                console.log(`${playerScore} - ${computerScore}`);
                 
             }
+            if(playerScore>computerScore){
+                alert('player wins');
+            }
+            else if(computerScore>playerScore){
+                alert('computer wins');
+            }
+            else{
+                alert('tie game');
+            }
         }
+        
 
-        game();
+        playGame();
 
 
 
         
-        
-
 
         
+         
+
+
+
+
+
+
+
+
+
     </script>
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
