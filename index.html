@@ -5,113 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rock-paper-scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
 </head>
 <body>
-    <script>
-        // *A FUNCTION THAT RETURNS RANDOM NUMBER BETWEEN 0,1,2 FOR COMPUTER CHOICE 
-        function computerPlay(){
-            const choiceArray = ['ROCK','PAPER','SCISSOR'];
-            return choiceArray[(Math.floor((Math.random()*3)))];
-             }
-    
 
-        /* A FUNCTION THAT ASKS FOR PLAYER CHOICE AND STORES IT IN A VARIABLE 
-                    AND ALSO CHECKS IF IT IS A VALID CHOICE
-        */
-        function playerPlay(){
-            let playerChoice;
-            keepGoing = true;
-
-            while(keepGoing){
-            playerChoice= window.prompt('Choose between Rock, Paper, and Scissor');
-            playerChoice =playerChoice.toUpperCase();
-            if(playerChoice == 'ROCK' || playerChoice == 'PAPER' || playerChoice == 'SCISSOR'){
-                keepGoing = false;
-            }
-            else{
-                window.alert('choose between Rock, Paper or Scisoor');
-            }
-
-            }
-            return playerChoice;
-            
-        }
-
-
-        /* A PLAYROUND FUNCTION THAT CALLS computerPlay and playerPlay 
-        FUNCTIONS AND COMPARES THE RESULTS AND RETURNS THE WINNER." */
-
-        function playRound(){
-            let playerSelection, computerSelection;
-            playerSelection = playerPlay();
-            computerSelection = computerPlay();
-            console.log(playerSelection);
-            console.log(computerSelection);
-
-            if(playerSelection == computerSelection){
-                return 0;
-            }
-            else if((playerSelection == 'ROCK' && computerSelection == 'SCISSOR') || 
-            (playerSelection == 'PAPER' && computerSelection == 'ROCK')||
-            (playerSelection == 'SCISSOR' && computerSelection == 'PAPER')){
-                return 1;
-            }
-            else{
-                return -1;
-            }
-        }
-        
-
-        /*FUNCTION PLAYE GAME CALLS THE playRound FUNCTION 5 TIMES AND RECORDS SCORE OF 
-        EACH ROUND AND ANNOUNCES THE WINNER AT THE END OF 5 ROUNDS BASED ON AGGREGATE SCORE */
-
-        function playGame(){
-            let playerScore = 0;
-            let computerScore = 0;
-
-            for(let i = 0; i<=4;++i){
-                let roundResult = playRound();
-                console.log(roundResult)
-                if(roundResult == 1){
-                    playerScore++;
-                }
-                else if(roundResult == -1){
-                    computerScore++;
-
-                }
-                console.log(`${playerScore} - ${computerScore}`);
-                
-            }
-            if(playerScore>computerScore){
-                alert('player wins');
-            }
-            else if(computerScore>playerScore){
-                alert('computer wins');
-            }
-            else{
-                alert('tie game');
-            }
-        }
-        
-
-        playGame();
-
-
-
-        
-
-        
-         
-
-
-
-
-
-
-
-
-
-    </script>
     
 
 
@@ -127,6 +25,6 @@
 
 
 
-
+<script src="index.js"></script>
 </body>
 </html>
