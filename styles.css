@@ -1,8 +1,102 @@
-html,body{
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+* {
     padding: 0;
-    font-family: sans-serif;
+    margin: 0;
+  }
+
+a{
+    text-decoration: none;
+    color: whitesmoke;
 }
 body{
     background-color: black;
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+    border: none;
+}
+button{
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+    border: none;
+    outline: none;
+}
+
+#game-title{
+    text-align: center;
+    position: relative;
+    margin-top: 2vh;
+    font-size: 4vh;
+    }
+
+@media only screen and (max-width:800px)
+{
+
+#game-title{
+    
+    margin-top: 2vh;
+    font-size: 2vh;
+    }
+
+}
+
+#user-heading{
+    margin-top: 5vh;
+    text-align: center;
+    font-size: 2vh;
+    
+}
+#score-heading{
+    margin-top: 5vh;
+    text-align: center;
+    font-size: 2vh;
+    
+
+}
+#computer-heading{
+    margin-top: 5vh;
+    text-align: center;
+    font-size: 2vh;
+}
+#score{
+    display: flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+}
+
+#score>div{
+    font-size: 5vh;
+}
+
+.player-choice{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-around;
+    margin-top: 2vh;
+}
+
+.player-choice>button{
+    width: 15vh;
+    height:15vh;
+    padding: 1em;
+    
+    border-width: 3px;
+   
+}
+
+
+
+button:hover{
+    background-color: cadetblue;
+}
+img{
+    height: 6vh;
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color:white;
 }
