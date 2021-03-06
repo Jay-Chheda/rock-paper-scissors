@@ -6,19 +6,20 @@
 
 a{
     text-decoration: none;
-    color: whitesmoke;
+    color:#00adb5;
 }
 body{
-    background-color: black;
+    background-color: #222831;
     font-family: 'Roboto', sans-serif;
-    color: aliceblue;
+    color: #eeeeee;
     border: none;
 }
 button{
     font-family: 'Roboto', sans-serif;
-    color: aliceblue;
+    color: #393e46;
     border: none;
     outline: none;
+    background-color:  #393e46;
 }
 
 #game-title{
@@ -26,6 +27,7 @@ button{
     position: relative;
     margin-top: 2vh;
     font-size: 4vh;
+    color: #00adb5 !important;
     }
 
 @media only screen and (max-width:800px)
@@ -35,6 +37,7 @@ button{
     
     margin-top: 2vh;
     font-size: 2vh;
+    color: #00adb5 !important;
     }
 
 }
@@ -78,16 +81,49 @@ button{
     width: 15vh;
     height:15vh;
     padding: 1em;
+    border-radius: 50%;
     
     border-width: 3px;
+    
+   
+}
+.computer-choice{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin-top: 2vh;
+    
    
 }
 
+.computer-choice>div{
+    width: 15vh;
+    height: 15vh;
+    position: relative;
+    background-color:  #393e46 ;
+    border-radius: 50%;
+    
+    
+    text-align: center;
+   
 
-
-button:hover{
-    background-color: cadetblue;
 }
+.computer-choice>div>img{
+   
+    display: block;
+    margin: auto;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+
+
+
+
 img{
     height: 6vh;
 }
@@ -95,8 +131,19 @@ img{
 
 footer{
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
     text-align: center;
     color:white;
+    font-size: 10px;
+}
+
+.selected{
+    background-color:#00adb5 !important;
+    
+   
+}
+.final-result{
+    font-size: 5vh;
+    text-align: center;
 }
